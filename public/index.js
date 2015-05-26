@@ -6,16 +6,16 @@ var build = require('./lib/build')(document);
 var pkg = JSON.parse(fs.readFileSync('package.json','utf8'));
 var win = gui.Window.get();
 
-var $ = function(el){
+var _$ = function(el){
 	return document.querySelector(el);
 }
 
 //窗口逻辑
-var closeBtn = $('#closebtn');
-var minBtn = $('#minbtn');
-var aboutBtn = $('#aboutbtn');
-var debugBtn = $('#debugbtn');
-var title = $('#title');
+var closeBtn = _$('#closebtn');
+var minBtn = _$('#minbtn');
+var aboutBtn = _$('#aboutbtn');
+var debugBtn = _$('#debugbtn');
+var title = _$('#title');
 //设置标题
 title.innerHTML = pkg.description+' '+pkg.version;
 
@@ -70,17 +70,17 @@ function openInexplorer(url){
 
 //构建逻辑
 
-var startBtn = $('#start');
-var inFolder = $('#inFolder');
-var outFolder = $('#outFolder');
-var moreLog = $('#moreLog');
-var uglify = $('#uglify');
-var ideading = $('#ideading');
+var startBtn = _$('#start');
+var inFolder = _$('#inFolder');
+var outFolder = _$('#outFolder');
+var moreLog = _$('#moreLog');
+var uglify = _$('#uglify');
+var ideading = _$('#ideading');
 
 
 //选择文件夹
-var inFolderTrigger = $('#inFolderTrigger');
-var outFolderTrigger = $('#outFolderTrigger');
+var inFolderTrigger = _$('#inFolderTrigger');
+var outFolderTrigger = _$('#outFolderTrigger');
 inFolderTrigger.onclick = function(){
 	inFolder.click();
 }

@@ -4,7 +4,8 @@
 }
 
 body{
-	background: #eee;
+	background: #ebe7df;
+	color: #222;
 	font-family: "微软雅黑", Helvetica, Arial, sans-serif;
 	font-size: 18px;
 	/*The user can not select text in the element.*/
@@ -18,10 +19,7 @@ body{
 	background: #ddd;
 	padding: 0 10px;
 }
-#dragbtn{
-	-webkit-app-region:drag;
-	cursor: pointer;
-}
+label{cursor: pointer;}
 .menu .title{float: left;font-weight: 700;}
 .menu .icons ul{list-style: none;cursor: pointer;}
 .menu .icons li{float: left;font-size:0.8em;}
@@ -35,6 +33,9 @@ body{
 	height: 35px;
 }
 .group input{margin-right: 20px;}
+.group .chkbl{margin-right: 20px;}
+label{margin-right: 10px;}
+#logo{  height: 70px;font-size: 2em;line-height: 60px;cursor: move;-webkit-app-region:drag;}
 pre{
 	background: #111;
 	color:#fff;
