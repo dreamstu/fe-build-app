@@ -1,0 +1,18 @@
+{
+  "name": "pagination",
+  "version": "0.0.1",
+  "description": "分页-通用组件",
+  "keywords": [],
+  "homepage": "",
+  "author": "dreamstu <cjxsgn@163.com>",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "devDependencies": {
+    "grunt-build-seajs": "~0.0.1"
+  }
+}

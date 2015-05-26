@@ -1,0 +1,18 @@
+{
+  "name": "moment",
+  "version": "2.9.0",
+  "description": "Moment.js是一个简单易用的轻量级JavaScript日期处理类库，提供了日期格式化、日期解析等功能。它支持在浏览器和NodeJS两种环境中运行。此类库能够将给定的任意日期转换成多种不同的格式，具有强大的日期计算功能，同时也内置了能显示多样的日期形式的函数。",
+  "keywords": [],
+  "homepage": "",
+  "author": "dreamstu <cjxsgn@163.com>",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "devDependencies": {
+    "grunt-build-seajs": "~0.0.1"
+  }
+}

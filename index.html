@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>前端构建</title>
+	<link rel="stylesheet" href="./public/layout.css">
+	<link rel="stylesheet" href="./public/index.css">
+</head>
+<body>
+	<div class="menu fix">
+		<div class="title" id="title"></div>
+		<div class="icons r">
+			<ul>
+				<li class="item" id="dragbtn"><a href="#">拖动窗口</a></li>
+				<li class="item" id="debugbtn"><a href="#">调试模式</a></li>
+				<li class="item" id="aboutbtn"><a href="#">关于</a></li>
+				<li class="item" id="minbtn"><a href="#">最小化</a></li>
+				<li class="item" id="closebtn"><a href="#">关闭</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="warpper">
+		<!-- <h1>再不构建你们就老了</h1> -->
+		<div class="group">
+			<label for="selectFolder">选择构建目录</label>
+			<input class="pct70" type="text" id="inFolderTrigger" value="选择源码文件目录"/>
+			<input class="dn" id="inFolder" type="file" nwdirectory />
+		</div>
+		<div class="group">
+			<label for="selectFolder">选择输出目录</label>
+			<input class="pct70" type="text" id="outFolderTrigger" value="选择输出文件目录"/>
+			<input class="dn" id="outFolder" type="file" nwdirectory />
+		</div>
+		<div class="group fix">
+			<label for="moreLog">输出详细日志</label>
+			<input type="checkbox" id="moreLog">
+			<label for="uglify">开启压缩</label>
+			<input type="checkbox" id="uglify" checked="checked">
+			<label for="uglify">ideading</label>
+			<input type="text" id="ideading" value="modules" />(留空默认为'modules')
+			<a id="start" href="javascript:;" class="btn btn-blue r">开始</a>
+		</div>
+		<pre id="content" class="mt20"></pre>
+	</div>
+	<div class="footer">
+		<p>案例 : <a href="javascript:;" onclick="openInexplorer('http://crm.qipeipu.com')" target="_blank">crm.qipeipu.com</a> </p>
+	</div>
+	<div id="devtools">
+		
+	</div>
+	<script type="text/javascript" src="./public/index.js"></script>
+</body>
+</html>

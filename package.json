@@ -1,0 +1,24 @@
+{
+  "name": "febuild",
+  "main": "index.html",
+  "version":"1.0 bata",
+  "description":"巴图鲁-前端构建 FE_BUILD",
+  "window": {
+    "icon":"./public/images/icon.png",
+    "toolbar": false,
+    "width":980,
+    "height":750,
+    "resizable":false,
+    "fullscreen":false,
+    "show_in_taskbar":true,
+    "kiosk":false,
+    "frame":false
+  },
+  "dependencies": {
+    "grunt": "^0.4.5",
+    "load-grunt-tasks": "^3.2.0",
+    "shelljs": "^0.5.0",
+    "time-grunt": "^0.4.0",
+    "uglify-js": "^2.4.22"
+  }
+}

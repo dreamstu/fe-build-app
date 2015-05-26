@@ -1,0 +1,56 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background: #eee;
+	font-family: "微软雅黑", Helvetica, Arial, sans-serif;
+	font-size: 18px;
+	/*The user can not select text in the element.*/
+ 	-webkit-user-select:none;
+ 	-webkit-app-region:no-drag;
+}
+
+.menu{
+	height: 40px;
+	line-height: 40px;
+	background: #ddd;
+	padding: 0 10px;
+}
+#dragbtn{
+	-webkit-app-region:drag;
+	cursor: pointer;
+}
+.menu .title{float: left;font-weight: 700;}
+.menu .icons ul{list-style: none;cursor: pointer;}
+.menu .icons li{float: left;font-size:0.8em;}
+.menu .icons a{padding: 10px;text-decoration: none;color: #111;}
+.menu .icons a:hover{color: #fff;background-color: #df0007;}
+
+.warpper{
+	padding: 20px;
+}
+.group{
+	height: 35px;
+}
+.group input{margin-right: 20px;}
+pre{
+	background: #111;
+	color:#fff;
+	padding: 5px 0;
+	line-height: 20px;
+	min-height: 500px;
+	max-height: 500px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	/*The user can select text in the element.*/
+	-webkit-user-select:text;
+}
+pre p{
+	text-indent: 1em;
+}
+.footer{
+	padding: 0 10px;
+	text-align: center;
+}

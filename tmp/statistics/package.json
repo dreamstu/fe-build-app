@@ -1,0 +1,18 @@
+{
+  "name": "statistics",
+  "version":"0.0.1",
+  "description": "电话营销统计",
+  "keywords": [],
+  "homepage": "",
+  "author": "dreamstu <cjxsgn@163.com>",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "devDependencies": {
+    "grunt-build-seajs": "~0.0.1"
+  }
+}
