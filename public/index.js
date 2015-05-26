@@ -4,27 +4,7 @@ var gui = require('nw.gui');
 var shell = gui.Shell;
 var build = require('./lib/build')(document);
 var pkg = JSON.parse(fs.readFileSync('package.json','utf8'));
-var menubar = new gui.Menu({ type: 'menubar' });
-var sub1 = new gui.Menu();
-
-sub1.append(new gui.MenuItem({
-	label: '打开',
-	click: function() {
-		var element = document.createElement('div');
-		element.appendChild(document.createTextNode('Test 1'));
-		document.body.appendChild(element);
-	}
-}));
-
-menubar.append(new gui.MenuItem({ 
-	label: '菜单',
-	submenu: sub1 
-}));
-
 var win = gui.Window.get();
-win.menu = menubar;
-
-
 
 var $ = function(el){
 	return document.querySelector(el);
