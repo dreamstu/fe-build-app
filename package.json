@@ -1,7 +1,7 @@
 {
   "name": "febuild",
   "main": "index.html",
-  "version":"1.0 bata",
+  "version":"0.0.1",
   "description":"巴图鲁-前端构建 FE_BUILD",
   "window": {
     "icon":"./public/images/icon.png",
