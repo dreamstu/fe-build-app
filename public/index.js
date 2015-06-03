@@ -74,6 +74,7 @@ var startBtn = _$('#start');
 var inFolder = _$('#inFolder');
 var outFolder = _$('#outFolder');
 var moreLog = _$('#moreLog');
+var mislead = _$('#mislead');
 var uglify = _$('#uglify');
 var ideading = _$('#ideading');
 
@@ -125,6 +126,7 @@ startBtn.onclick = function(){
 							outf:formatPath(outf),
 							queue:queue,
 							moreLog:moreLog.checked,
+							mislead:mislead.checked,
 							uglify:uglify.checked,
 							id:ideading.value
 						};
