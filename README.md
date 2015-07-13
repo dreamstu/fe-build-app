@@ -24,3 +24,5 @@ fe-build for node-webkit clinet
 # TODO
   ...
   
+
+~/Downloads/node-webkit-v0.11.1-osx-x64/node-webkit.app/Contents/MacOS/node-webkit .

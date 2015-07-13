@@ -2,7 +2,23 @@ var fs = require('fs');
 var path = require('path');
 var gui = require('nw.gui');
 var shell = gui.Shell;
-var build = require('./lib/build')(document);
+
+var settings = require('./lib/settings');
+var debug = settings.debug;
+var contentBox = document.querySelector('#content');
+
+settings.printLog = function(){
+	if(debug){
+		console.log(Array.prototype.join.call(arguments,''));
+	}else{
+		var p = document.createElement('p');
+		p.innerHTML = Array.prototype.join.call(arguments,'');
+		contentBox.appendChild(p);
+		contentBox.scrollTop = contentBox.scrollHeight;
+		//console.log(Array.prototype.join.call(arguments,''));
+	}
+}
+var build = require('quick-build-core')(settings);
 var pkg = JSON.parse(fs.readFileSync('package.json','utf8'));
 var win = gui.Window.get();
 
@@ -26,6 +42,11 @@ debugBtn.onclick = function(){
 	    console.log("devtools-opened: welcome");
 	});
 }
+
+win.showDevTools('', true);
+win.on("devtools-opened", function(url) {
+    console.log("devtools-opened: welcome");
+});
 
 closebtn.onclick = function(){
 	if(confirm('你要关闭构建工具吗？')){
@@ -107,34 +128,22 @@ startBtn.onclick = function(){
 		alert('输出目录没选');
 		return;
 	}
-	fs.exists(inf,function(exists){
-		if(!exists) catchError("构建目录不存在！！！",true);
-		fs.readdir(inf,function(err, files){
-			catchError(err);
-			var size = files.length;
-			var queue = [];
-			files.forEach(function(file,i){
-				fs.stat(path.join(inf,file),function(err,stats){
-					catchError(err);
-					if(!err && stats && stats.isDirectory() && fs.existsSync(path.join(inf,file,'package.json')) ){
-						queue.push(file);
-					}
-					if(i==size-1){
-						//构造可选参数
-						var params = {
-							inf:inf,
-							outf:formatPath(outf),
-							queue:queue,
-							moreLog:moreLog.checked,
-							mislead:mislead.checked,
-							uglify:uglify.checked,
-							id:ideading.value
-						};
-						build.start(params);
-					}
-				});
-			});
-		});
+	build.getQueue(inf,function(err,queue){
+		if(err){
+			catchError(err,true);
+			return;
+		}
+		//构造可选参数
+		var params = {
+			inf:inf,
+			outf:formatPath(outf),
+			queue:queue,
+			moreLog:moreLog.checked,
+			mislead:mislead.checked,
+			uglify:uglify.checked,
+			id:ideading.value
+		};
+		build.start(params);
 	});
 
 	function formatPath(path){
@@ -153,4 +162,41 @@ function catchError(err,fatal){
 		console.log(new Date().getTime()+'\t',err);
 		if(fatal){return;}	
 	}
+}
+
+if(debug){
+	build.test = function(){
+		var inf = 'C://Users/Administrator/Desktop/static2'
+		fs.exists(inf,function(exists){
+			if(!exists) catchError("构建目录不存在！！！",true);
+			fs.readdir(inf,function(err, files){
+				catchError(err);
+				var size = files.length;
+				var queue = [];
+				files.forEach(function(file,i){
+					fs.stat(path.join(inf,file),function(err,stats){
+						catchError(err);
+						if(!err && stats && stats.isDirectory() && fs.existsSync(path.join(inf,file,'package.json')) ){
+							queue.push(file);
+						}
+						if(i==size-1){
+							var params = {
+								inf:inf,
+								outf:'C://Users/Administrator/Desktop/dist',
+								queue:queue,
+								moreLog:true,
+								uglify:true,
+								mislead:true
+							};
+							build.start(params);
+						}
+					});
+				});
+			});
+		});
+	}
+	build.formatPath = function(path){
+		return path.replace(/\\/g,'/');
+	}
+	build.test();
 }
