@@ -18,6 +18,7 @@ settings.printLog = function(){
 		//console.log(Array.prototype.join.call(arguments,''));
 	}
 }
+
 var build = require('quick-build-core')(settings);
 var pkg = JSON.parse(fs.readFileSync('package.json','utf8'));
 var win = gui.Window.get();
@@ -42,11 +43,6 @@ debugBtn.onclick = function(){
 	    console.log("devtools-opened: welcome");
 	});
 }
-
-win.showDevTools('', true);
-win.on("devtools-opened", function(url) {
-    console.log("devtools-opened: welcome");
-});
 
 closebtn.onclick = function(){
 	if(confirm('你要关闭构建工具吗？')){
